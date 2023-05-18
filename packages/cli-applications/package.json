@@ -1,0 +1,46 @@
+{
+  "name": "@vonage/cli-applications",
+  "version": "2.0.0",
+  "description": "A Vonage CLI Plugin for interacting with applications",
+  "keywords": [
+    "Vonage"
+  ],
+  "homepage": "https://github.com/Vonage/vonage-cli/tree/main/packages/cli-applications#readme",
+  "bugs": {
+    "url": "https://github.com/Vonage/vonage-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vonage/vonage-cli.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Chuck MANCHUCK Reeves <chuck@manchuck.com>",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "npx shx rm -rf dist tsconfig.tsbuildinfo",
+    "compile": "npx tsc --build --verbose",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^2.2.0",
+    "@oclif/core": "2.8.8",
+    "@vonage/cli-core": "2.1.0",
+    "unique-names-generator": "^4.7.1"
+  },
+  "oclif": {
+    "commands": "./dist/commands",
+    "topics": {
+      "apps": {
+        "description": "Vonage Application commands"
+      }
+    }
+  }
+}

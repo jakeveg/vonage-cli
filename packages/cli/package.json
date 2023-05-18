@@ -51,7 +51,8 @@
       "@oclif/plugin-autocomplete",
       "@oclif/plugin-which",
       "@vonage/cli-core",
-      "@vonage/cli-jwt"
+      "@vonage/cli-jwt",
+      "@vonage/cli-applications"
     ]
   }
 }
