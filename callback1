@@ -1,0 +1,21 @@
+const onCallRequest = (req,res) => {
+  console.log('Request to call Number: ' + req.query.mobile)
+  makeCall(req.query.mobile)
+  res.sendststus(200)
+}  
+  
+async function makeCall(toNumber) {
+  const builder = new NCCOBuilder();
+  builder.addAction(new Talk('This is a text to speech call from Vonage'));
+  const resp = await vonage.voice.createOutboundCall(
+    new OutboundCallWithNCCO(
+      builder.build(),
+      { type: 'phone', number: toNumber },
+      { type: 'phone', number: VONAGE_NUMBER}
+    )
+  );
+
+  console.log(resp);
+}
+app.get('?webhooks/call', onCallRequest)
+app.listen(3000)
